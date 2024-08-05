@@ -8,11 +8,15 @@ export default {
     theme: {
         color:{
             
-            "blue-dark-300":"#002962",
-            "blue-dark-200":"#004e89",
-            "blue-dark-100":"#00b4d8",
-            "blue-nite-100":"#407ba7",
-            "red":"#ff002b",
+            "gray-100":"#737373",
+            "gray-200":"#D9D9D9",
+            "gray-300":"#7F7F7F",
+            "gray-400":"#575757",
+            "gray-500":"#080808",
+            "white":"#FFFFFF",
+            "blue-500":"#023E8A",
+            "yellow-100":"#FEE440",
+            "green-100":"#80ED99"
 
 
         },
