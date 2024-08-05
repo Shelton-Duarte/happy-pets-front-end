@@ -5,7 +5,6 @@ export const Home = () => {
     <>
      
       <main>
-      
         home page
       </main>
     
