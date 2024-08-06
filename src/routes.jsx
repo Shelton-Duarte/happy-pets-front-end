@@ -7,6 +7,7 @@ import { Contacts } from "./pages/contacts";
 import { Products } from "./pages/products";
 
 
+
 export const route = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +24,7 @@ export const route = createBrowserRouter([
   },
   {
     path: "/products",
-    element: <Products/>,
+    element: <Products />,
   },
   {
     path: "/sign-up",
