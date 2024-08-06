@@ -7,10 +7,10 @@ export const NavBar = () => {
         <div className="flex justify-end items-center font-semibold">
           <div className="flex items-center gap-4">
             <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-              SignUp
+              <a href="http://localhost:5174/sign-up">SignUp</a>
             </button>
             <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-              Login
+            <a href="http://localhost:5174/login">Login</a>
             </button>
           </div>
         </div>
