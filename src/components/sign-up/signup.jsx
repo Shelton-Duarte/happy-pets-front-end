@@ -27,7 +27,7 @@ export const SignUpForm = () => {
       return;
     }
     setSubmissionMessage("Sign up successful!");
-    setFormData({ ...initialFormData }); // Limpa o formulário após envio
+    setFormData({ ...initialFormData }); 
   };
 
   return (
