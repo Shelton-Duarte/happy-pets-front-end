@@ -8,7 +8,6 @@ export const LoginForm = () => {
   };
 
   const [formData, setFormData] = useState({ ...initialFormData });
-  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,9 +19,9 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add login logic here
+
     setSubmissionMessage("Login successful!");
-    setFormData({ ...initialFormData }); // Clear form after submission
+    setFormData({ ...initialFormData }); 
   };
 
   return (
