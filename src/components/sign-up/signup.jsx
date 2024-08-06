@@ -31,8 +31,11 @@ export const SignUpForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="w-1/3 h-1/3 flex flex-col justify-center items-center border shadow-black shadow-lg bg-purple-bytes p-6">
+    <div className="flex items-center justify-end min-h-screen bg-cover bg-center"
+    style={{
+      backgroundImage: "url('/signUp.jpg')",
+    }}>
+      <div className="w-1/4 h-1/3 flex flex-col justify-center items-center border rounded-3xl shadow-gray-700 shadow-lg bg-white bg-opacity p-6 mr-48">
         <img
           src="/happy-pets-logo.png"
           alt="Happy-Pets-Logo"
