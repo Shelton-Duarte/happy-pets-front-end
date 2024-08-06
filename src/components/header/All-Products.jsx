@@ -29,7 +29,7 @@ const PetCard = ({ src, alt }) => {
   );
 };
 
-const NavBar = () => {
+const AllProducts = () => {
   return (
     <>
       <div className="bg-gray-200  w-[75%] p-4 fixed top-0 right-0 z-10">
@@ -91,4 +91,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default AllProducts;
