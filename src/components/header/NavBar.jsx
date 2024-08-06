@@ -17,7 +17,7 @@ export const NavBar = () => {
       </div>
       <div className="bg-gray-200 w-[75%] p-4 fixed top-16 right-0 z-10">
         <div className="flex items-center justify-between">
-          <p className="text-black px-4 py-1 cursor-pointer flex font-semibold text-xl text-blue-700">
+          <p className="text-black px-4 py-1 cursor-pointer flex font-semibold text-xl hover:text-blue-700">
             See our products <CaretDoubleDown size={32} />
           </p>
           
