@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home } from "./pages/home";
 import { Login } from "./pages/login";
-import { Products } from "./pages/products";
 import { SignUp } from "./pages/sign-up";
 import { ErrorPage } from "./pages/error-page";
 import { Contacts } from "./pages/contacts";
+import { Products } from "./pages/products";
+
 
 export const route = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ export const route = createBrowserRouter([
   },
   {
     path: "/products",
-    element: <Products />,
+    element: <Products/>,
   },
   {
     path: "/sign-up",
