@@ -15,7 +15,7 @@ const Sidebar = ({ openModal }) => {
         </div>
         <div className='flex items-center gap-3 pl-8 cursor-pointer mt-4'>
           <Dog size={32} />
-          <p className='font-bold'>Products</p>
+          <p className='font-bold text-blue-700'>Products</p>
         </div>
         <div className='flex items-center gap-3 pl-8 cursor-pointer mt-4'>
           <Phone size={32} />
@@ -39,7 +39,7 @@ const Sidebar = ({ openModal }) => {
           onClick={openModal}
           className='px-4 py-1.5 bg-[#023E8A] text-[15px] text-white rounded-full mt-4'
         >
-          Click here
+          Advices
         </button>
       </div>
     </div>
