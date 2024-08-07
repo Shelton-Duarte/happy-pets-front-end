@@ -5,47 +5,40 @@ export const HomePage = () => {
     <main className="relative w-full h-full overflow-hidden m-0 p-0 box-border"
      
     >
-      <video
+       <video
         autoPlay
         muted
         loop
-        className=" w-screen h-full object-cover"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
+         className=" w-screen h-screen object-cover top-0 left-0"
+         
         id="myVideo"
-      >
-        <source src="/1920x1080_New.mp4" type="video/mp4" />
+      >      
+         <source src="/1920x1080_New.mp4" type="video/mp4" />
         Seu navegador não suporta o elemento de vídeo.
-      </video>
+      </video> 
 
-      <div
-        style={{
-          position: "absolute",
-          top: "10%", 
-          left: "5%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          padding: "1rem",
-          overflow: "hidden",
-        }}
+      <div className="overflow-hidden justify-items-center p-4 flex 
+      "
+         style={{
+           position: "absolute",
+           top: "10%", 
+           left: "5%",
+           alignItems: "center",
+           
+          
+           
+         }}
       >
         <div 
-        className="p-8 text-center max-w-7xl w-1/4 box-border rounded-3xl "
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            padding: "1.25rem",
-            borderRadius: "1.25rem",
-            boxShadow: "0 0 0.625rem rgba(0, 0, 0, 0.3)",
-            width: "25%",
+         className="p-8 text-center max-w-7xl w-1/4 box-border rounded-3xl "
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              padding: "1.25rem",
+              borderRadius: "1.25rem",
+              boxShadow: "0 0 0.625rem rgba(0, 0, 0, 0.3)",
+              width: "25%",
            
-          }}
+            }}
         >
           <h1 className="font-large-bold"
             
@@ -63,15 +56,10 @@ export const HomePage = () => {
             </p>
             
             <button
-            className="mt-4 cursor-pointer font-bold p-2 "
-              style={{
-                backgroundColor: "#80ED99",
-                borderRadius: "1.25rem",
-                fontSize: "1rem",          
-                display: "inline-block",
-              }}
-            >
-              View Products
+            className="mt-4 cursor-pointer font-bold p-2 inline-block  "
+              
+            ><a href="http://localhost:5173/products">View Products</a>
+              
             </button>
           </div>
         </div>
