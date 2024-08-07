@@ -4,24 +4,32 @@ import AllProducts from "../components/header/All-Products";
 import FAQ from "../components/FAQ/faq";
 import Modal from "../components/FAQ/style";
 import { Footer } from "../components/footer/footer";
+import { About } from "../components/about/about";
 
 export const Products = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFaqModalOpen, setIsFaqModalOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const openFaqModal = () => setIsFaqModalOpen(true);
+  const closeFaqModal = () => setIsFaqModalOpen(false);
+
+  const openAboutModal = () => setIsAboutModalOpen(true);
+  const closeAboutModal = () => setIsAboutModalOpen(false);
 
   return (
     <>
       <div className="flex">
-        <Sidebar openModal={openModal} />
+        <Sidebar openFaqModal={openFaqModal} openAboutModal={openAboutModal} />
         <div className="flex-auto top-0 right-0 relative">
           <AllProducts />
           <Footer />
         </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isFaqModalOpen} onClose={closeFaqModal}>
         <FAQ />
+      </Modal>
+      <Modal isOpen={isAboutModalOpen} onClose={closeAboutModal}>
+        <About onClose={closeAboutModal} />
       </Modal>
     </>
   );

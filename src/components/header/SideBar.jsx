@@ -1,10 +1,9 @@
-import React from 'react';
 import { House, Dog, Phone } from "@phosphor-icons/react";
 
-const Sidebar = ({ openModal }) => {
+const Sidebar = ({ openFaqModal, openAboutModal }) => {
   return (
-    <div className='w-[25%] h-[93rem] p-2 flex-col gap-2 text-black bg-gray-400 rounded '>
-      <div className='bg-gray-200 h-[20%] flex flex-col justify-around rounded'>
+    <div className='w-full md:w-[25%] h-auto md:h-[93rem] p-2 flex-col gap-2 text-black bg-gray-400 rounded'>
+      <div className='bg-gray-200 h-auto md:h-[20%] flex flex-col justify-around rounded'>
         <div className='flex items-center gap-3 pl-8 cursor-pointer'>
           <img src="/Job/dog.png" alt="logo" width={90} height={90} />
           <p className='font-bold'>Happy Pets</p>
@@ -26,7 +25,7 @@ const Sidebar = ({ openModal }) => {
         <h1>Find out more about us</h1>
         <p className='font-light'>click the button below</p>
         <button 
-          onClick={openModal}
+          onClick={openAboutModal}
           className='px-4 py-1.5 bg-[#023E8A] text-[15px] text-white rounded-full mt-4'
         >
           Click Here
@@ -36,7 +35,7 @@ const Sidebar = ({ openModal }) => {
         <h1>Get to know your pet</h1>
         <p className='font-light'>click the button below</p>
         <button 
-          onClick={openModal}
+          onClick={openFaqModal}
           className='px-4 py-1.5 bg-[#023E8A] text-[15px] text-white rounded-full mt-4'
         >
           Advices
