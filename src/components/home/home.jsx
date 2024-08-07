@@ -1,67 +1,49 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   return (
-    <main className="relative w-full h-full overflow-hidden m-0 p-0 box-border">
+    <main className="relative w-full h-screen overflow-hidden m-0 p-0 box-border">
       <video
         autoPlay
         muted
         loop
-         className=" w-screen h-screen object-cover top-0 left-0"
-         
+        className="w-full h-full object-cover"
         id="myVideo"
-      >      
-         <source src="/1920x1080_New.mp4" type="video/mp4" />
+      >
+        <source src="/1920x1080_New.mp4" type="video/mp4" />
         Seu navegador não suporta o elemento de vídeo.
-      </video> 
+      </video>
 
       <div
-        style={{
-          position: "absolute",
-          top: "10%",
-          left: "5%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          padding: "1rem",
-          overflow: "hidden",
-        }}
+        className="absolute top-1/4 left-4 sm:left-8 md:left-12 lg:left-20 p-4 sm:p-6 md:p-8 lg:p-10"
+        style={{ overflow: "hidden" }}
       >
         <div
-          className="p-8 text-center max-w-7xl w-1/4 box-border rounded-3xl "
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.8)",
-            padding: "1.25rem",
-            borderRadius: "1.25rem",
-            boxShadow: "0 0 0.625rem rgba(0, 0, 0, 0.3)",
-            width: "25%",
-          }}
+          className="bg-white bg-opacity-80 p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl md:rounded-2xl lg:rounded-3xl shadow-lg max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg"
         >
-          <h1 className="font-large-bold">HAPPY-PETS</h1>
-          <div className="m-2 text-left  ">
-            <p>
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+            HAPPY-PETS
+          </h1>
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-4">
             Welcome to our store specializing in the sale of various feeds,
-              puppy breeds, and puppy accessories! Here you
-              You'll find all the information you need to explore,
-              understand and get the most out of our products aimed at
-              well-being of your four-legged friends. ...
-            </p>
-            
-           <Link to='/products'>
+            puppy breeds, and puppy accessories! Here you’ll find all the
+            information you need to explore, understand, and get the most out
+            of our products aimed at the well-being of your four-legged friends.
+          </p>
+          <Link to='/products'>
             <button
-              className="mt-4  font-bold p-2 "
+              className="mt-4 font-bold py-2 px-4 rounded-lg"
               style={{
                 backgroundColor: "#80ED99",
-                borderRadius: "1.25rem",
+                borderRadius: "0.75rem",
                 fontSize: "1rem",
-                display: "inline-block",
-                cursor: "cursor-pointer",
+                cursor: "pointer",
               }}
             >
               View Products
-            </button></Link>
-          </div>
+            </button>
+          </Link>
         </div>
       </div>
     </main>
