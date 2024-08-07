@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Sidebar from '../components/header/SideBar';
-import AllProducts from '../components/header/All-Products';
-import FAQ from '../components/FAQ/faq';
-import Modal from '../components/FAQ/style';
-import About from '../components/about/about';
+import React, { useState } from "react";
+import Sidebar from "../components/header/SideBar";
+import AllProducts from "../components/header/All-Products";
+import FAQ from "../components/FAQ/faq";
+import Modal from "../components/FAQ/style";
+import { About } from "../components/about/about";
 
 export const Products = () => {
   const [isFaqModalOpen, setIsFaqModalOpen] = useState(false);
@@ -11,7 +11,7 @@ export const Products = () => {
 
   const openFaqModal = () => setIsFaqModalOpen(true);
   const closeFaqModal = () => setIsFaqModalOpen(false);
-  
+
   const openAboutModal = () => setIsAboutModalOpen(true);
   const closeAboutModal = () => setIsAboutModalOpen(false);
 
@@ -32,5 +32,3 @@ export const Products = () => {
     </>
   );
 };
-
-
