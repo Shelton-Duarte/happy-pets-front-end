@@ -1,3 +1,4 @@
+import { Footer } from "../components/footer/footer";
 import { LoginForm } from "../components/login/login";
 
 export const Login = () => {
@@ -5,6 +6,7 @@ export const Login = () => {
     <>
       <main>
         <LoginForm />
+        <Footer />
       </main>
     </>
   );

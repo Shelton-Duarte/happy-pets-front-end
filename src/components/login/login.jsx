@@ -21,7 +21,7 @@ export const LoginForm = () => {
     e.preventDefault();
 
     setSubmissionMessage("Login successful!");
-    setFormData({ ...initialFormData }); 
+    setFormData({ ...initialFormData });
   };
 
   return (
@@ -31,7 +31,7 @@ export const LoginForm = () => {
         backgroundImage: "url('/login-photo.jpg')",
       }}
     >
-      <div className="w-1/3 h-0 flex flex-col justify-center items-center rounded-3xl outline-none bg-transparent p-6 mr-16">
+      <div className="w-2/5 h-2/5 flex flex-col justify-center items-center rounded-3xl shadow-lg shadow-black outline-none bg-white p-6 mr-20">
         <img
           src="/happy-pets-logo.png"
           alt="Happy-Pets-Logo"
@@ -68,7 +68,7 @@ export const LoginForm = () => {
               required
             />
           </div>
-          
+
           <div className="p-11">
             <button
               type="submit"
@@ -77,7 +77,12 @@ export const LoginForm = () => {
               Login
             </button>
           </div>
-          <span className="text-black pl-8">Doesn't have an account? <span className="text-blue-800"><a href="http://localhost:5173/sign-up">SignUp</a></span></span>
+          <span className="items-center col-span-2 text-black pl-28">
+            Doesn't have an account?{" "}
+            <span className=" items-center text-blue-800">
+              <a href="http://localhost:5173/sign-up">SignUp</a>
+            </span>
+          </span>
         </form>
       </div>
     </div>

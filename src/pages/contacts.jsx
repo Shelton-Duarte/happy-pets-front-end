@@ -1,11 +1,12 @@
-
-
+import { Footer } from "../components/footer/footer";
 
 export const Contacts = () => {
   return (
     <>
-      
-      <main>Contact Page</main>
+      <main>
+        Contact Page
+        <Footer />
+      </main>
     </>
   );
 };
