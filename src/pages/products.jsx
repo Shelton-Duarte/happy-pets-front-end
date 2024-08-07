@@ -22,7 +22,7 @@ export const Products = () => {
         <Sidebar openFaqModal={openFaqModal} openAboutModal={openAboutModal} />
         <div className="flex-auto top-0 right-0 relative">
           <AllProducts />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </div>
       <Modal isOpen={isFaqModalOpen} onClose={closeFaqModal}>

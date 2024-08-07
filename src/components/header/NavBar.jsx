@@ -1,5 +1,6 @@
 import React from 'react';
 import { CaretDoubleDown, ShoppingCart } from "phosphor-react";
+import { Link } from 'react-router-dom';
 
 export const NavBar = () => {
   return (
@@ -7,12 +8,17 @@ export const NavBar = () => {
       <div className="bg-gray-200 w-full md:w-[75%] p-4 fixed top-0 right-0 z-10">
         <div className="flex justify-end items-center font-semibold">
           <div className="flex items-center gap-4">
+            <Link to="/pages/sign-up">
             <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-              <a href="http://localhost:5173/sign-up">SignUp</a>
+            SignUp
             </button>
+            </Link>
+            <Link to="/pages/login">
             <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-            <a href="http://localhost:5173/login">Login</a>
+            Login
             </button>
+            </Link>
+            
           </div>
         </div>
       </div>

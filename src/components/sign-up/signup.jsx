@@ -20,12 +20,17 @@ export const SignUpForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("The passwords don't match.");
-      return;
-    }
+    
+    fetch("/api/user", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData) 
+    })
+
     setSubmissionMessage("Sign up successful!");
     setFormData({ ...initialFormData });
   };

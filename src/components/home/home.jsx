@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export const HomePage = () => {
   return (
@@ -40,13 +41,14 @@ export const HomePage = () => {
           <h1 className="font-large-bold">HAPPY-PETS</h1>
           <div className="m-2 text-left  ">
             <p>
-              Bem-vindo à nossa loja especializada na venda de rações, diversas
-              raças de cachorros, e acessórios para cachorros! Aqui você
-              encontrará todas as informações necessárias para explorar,
-              entender e aproveitar ao máximo os nossos produtos voltados para o
-              bem-estar dos seus amigos de quatro patas.
+            Welcome to our store specializing in the sale of various feeds,
+              puppy breeds, and puppy accessories! Here you
+              You'll find all the information you need to explore,
+              understand and get the most out of our products aimed at
+              well-being of your four-legged friends. ...
             </p>
-
+            
+           <Link to='/products'>
             <button
               className="mt-4  font-bold p-2 "
               style={{
@@ -58,7 +60,7 @@ export const HomePage = () => {
               }}
             >
               View Products
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
