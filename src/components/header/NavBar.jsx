@@ -1,75 +1,87 @@
-// import React from "react";
-// import { CaretDoubleDown, ShoppingCart } from "phosphor-react";
-// import { Link } from "react-router-dom";
-// import React, { useState } from "react";
-// import { useCart } from "../../context/cart-context";
-// import Cart from "../cart/cart.jsx"; // Certifique-se de que o caminho está correto
-
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { CaretDoubleDown, ShoppingCart } from "phosphor-react";
-import { useCart } from "../../context/cart-context";
-import Cart from "../cart/cart.jsx"; // Make sure the path is correct
+import { ShoppingCart } from "phosphor-react";
+import Sidebar from "./SideBar"; // Corrigido para Sidebar com maiúscula inicial
 
 export const NavBar = () => {
-  const [cartVisible, setCartVisible] = useState(false);
-  const { cart } = useCart();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const toggleCartVisibility = () => {
-    setCartVisible(!cartVisible);
-  };
-
-  const getCartItemCount = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
-  };
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   return (
     <>
-      <div className="bg-gray-200 w-full md:w-[75%] p-4 fixed top-0 right-0 z-10">
-        <div className="flex justify-end items-center font-semibold">
-          <div className="flex items-center gap-4">
-            <Link to="/pages/sign-up">
-              <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-                SignUp
-              </button>
-            </Link>
-            <Link to="/pages/login">
-              <button className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer">
-                Login =======
-                <a href="http://localhost:5173/login">Login</a>
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-      <div className="bg-gray-200 w-full md:w-[75%] p-4 fixed top-16 right-0 z-10">
-        <div className="flex items-center justify-between">
-          <p className="text-black px-4 py-1 cursor-pointer flex font-semibold text-xl hover:text-blue-700">
-            See our products <CaretDoubleDown size={32} />
-          </p>
+      {/* Main Navbar */}
+      <div className="bg-transparent w-full fixed top-0 left-0 z-50 flex justify-between items-center p-6">
+        {/* Menu Button for Mobile */}
+        <button
+          className="md:hidden text-black text-2xl"
+          onClick={toggleSidebar}
+        >
+          ☰
+        </button>
 
-          <div className="relative hover:bg-blue-700 border border-blue-700 bg-white text-blue-500 hover:text-white px-2 py-1 rounded-full cursor-pointer">
+        {/* Right-aligned items */}
+        <div className="flex items-center gap-4 ml-auto">
+          {/* Shopping Cart Icon */}
+          <div className="relative">
             <button
-              onClick={toggleCartVisibility}
-              className="flex items-center"
+              className="relative flex items-center"
+              onClick={() => console.log("Cart clicked")}
             >
               <ShoppingCart size={32} />
-              {getCartItemCount() > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  {getCartItemCount()}
-                </span>
-              )}
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                0
+              </span>
             </button>
-            {cartVisible && (
-              <div className="absolute top-full right-0 bg-white text-black shadow-lg mt-2 rounded-lg p-4 w-80">
-                <Cart />
-              </div>
-            )}
+          </div>
+
+          {/* SignUp and Login Buttons */}
+          <div className="hidden md:flex gap-4 items-center">
+            <button
+              className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
+              onClick={() => console.log("SignUp clicked")}
+            >
+              SignUp
+            </button>
+            <button
+              className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
+              onClick={() => console.log("Login clicked")}
+            >
+              Login
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-gray-200 p-4 flex flex-col items-center ${
+          isSidebarOpen ? "block" : "hidden"
+        } z-50`} // Ensure Mobile Menu is also above other content
+      >
+        <button className="text-2xl self-end mb-4" onClick={toggleSidebar}>
+          ✕
+        </button>
+        <button
+          className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl mb-2 cursor-pointer"
+          onClick={() => console.log("SignUp clicked")}
+        >
+          SignUp
+        </button>
+        <button
+          className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
+          onClick={() => console.log("Login clicked")}
+        >
+          Login
+        </button>
+      </div>
+
+      {/* Sidebar */}
+      {/* <Sidebar
+        isOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        openFaqModal={() => console.log("Open FAQ Modal")}
+        openAboutModal={() => console.log("Open About Modal")}
+      /> */}
     </>
   );
 };
-
-export default NavBar;
