@@ -1,4 +1,5 @@
 import { House, Dog, Phone } from "@phosphor-icons/react";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ openFaqModal, openAboutModal }) => {
   return (
@@ -9,15 +10,21 @@ const Sidebar = ({ openFaqModal, openAboutModal }) => {
         </div>
         <div className="flex items-center gap-3 cursor-pointer mb-4">
           <House size={32} />
-          <p className="font-bold text-lg">Home</p>
+          <NavLink to={"/"} className="font-bold text-lg">
+            Home
+          </NavLink>
         </div>
         <div className="flex items-center gap-3 cursor-pointer mb-4">
           <Dog size={32} />
-          <p className="font-bold text-lg text-blue-700">Products</p>
+          <NavLink to={"/products"} className="font-bold text-lg text-blue-700">
+            Products
+          </NavLink>
         </div>
         <div className="flex items-center gap-3 cursor-pointer mb-4">
           <Phone size={32} />
-          <p className="font-bold text-lg">Contact</p>
+          <NavLink to={"/contacts"} className="font-bold text-lg">
+            Contact
+          </NavLink>
         </div>
       </div>
       <div className="p-4 ml-6 bg-white shadow-md rounded font-semibold flex flex-col items-start gap-3">
