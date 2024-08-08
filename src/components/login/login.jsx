@@ -27,12 +27,12 @@ export const LoginForm = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center sm:[25%]"
       style={{
         backgroundImage: "url('/login-photo.jpg')",
       }}
     >
-      <div className="w-full max-w-md p-6 bg-white rounded-3xl shadow-lg">
+      <div className="w-full max-w-md max-w-sm-[50%] p-6 bg-white rounded-3xl shadow-lg ml-[45%]">
         <div className="flex flex-col items-center">
           <img
             src="/happy-pets-logo.png"
