@@ -7,6 +7,7 @@ import { Footer } from "../components/footer/footer";
 import { About } from "../components/about/about";
 import { NavBar } from "../components/header/NavBar";
 
+
 export const Products = () => {
   const [isFaqModalOpen, setIsFaqModalOpen] = useState(false);
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
@@ -19,12 +20,13 @@ export const Products = () => {
 
   return (
     <>
-      <NavBar />
+    <NavBar/>
       <div className="flex">
         <Sidebar openFaqModal={openFaqModal} openAboutModal={openAboutModal} />
         <div className="flex-auto top-0 right-0 relative">
+          <NavBar/>
           <AllProducts />
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
       <Modal isOpen={isFaqModalOpen} onClose={closeFaqModal}>

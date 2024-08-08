@@ -1,5 +1,6 @@
 import { Envelope, LockKey } from "@phosphor-icons/react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export const LoginForm = () => {
   const initialFormData = {
@@ -8,6 +9,8 @@ export const LoginForm = () => {
   };
 
   const [formData, setFormData] = useState({ ...initialFormData });
+  const [submissionMessage, setSubmissionMessage] = useState("");
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,73 +20,103 @@ export const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSubmissionMessage("Login successful!");
-    setFormData({ ...initialFormData });
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmissionMessage(result.message || "Login successful!");
+        setFormData({ ...initialFormData });
+        setTimeout(() => {
+          navigate("/products"); // Redirecionar para a página de produtos após login bem-sucedido
+        }, 2000);
+      } else {
+        setSubmissionMessage(result.message || "Login failed.");
+      }
+    } catch (error) {
+      setSubmissionMessage("An error occurred during login.");
+    }
   };
 
   return (
     <div
-      className="flex items-center justify-end min-h-screen bg-cover bg-center"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center sm:[25%]"
       style={{
         backgroundImage: "url('/login-photo.jpg')",
       }}
     >
-      <div className="w-2/5 h-2/5 flex flex-col justify-center items-center rounded-3xl shadow-lg shadow-black outline-none bg-white p-6 mr-20">
-        <img
-          src="/happy-pets-logo.png"
-          alt="Happy-Pets-Logo"
-          className="mb-4"
-        />
-        <h2 className="text-2xl font-semibold text-black mb-2">Login</h2>
+      <div className="w-full max-w-md max-w-sm-[50%] p-6 bg-white rounded-3xl shadow-lg ml-[45%]">
+        <div className="flex flex-col items-center">
+          <img
+            src="/happy-pets-logo.png"
+            alt="Happy-Pets-Logo"
+            className="mb-4 w-32 h-auto"
+          />
+          <h2 className="text-2xl font-semibold text-black mb-4">Login</h2>
 
-        <form
-          className="flex flex-col space-y-4 w-full max-w-md"
-          onSubmit={handleSubmit}
-        >
-          <div className="flex items-center space-x-2">
-            <Envelope size={28} />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full h-14 border-b-2 border-black text-black outline-none placeholder-gray-500 px-4  bg-white bg-opacity-0"
-              required
-            />
-          </div>
+          <form
+            className="flex flex-col space-y-4"
+            onSubmit={handleSubmit}
+          >
+            <div className="flex items-center space-x-2">
+              <Envelope size={24} />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full h-12 border-b-2 border-black text-black outline-none placeholder-gray-500 px-3 bg-white"
+                required
+              />
+            </div>
 
-          <div className="flex items-center space-x-2">
-            <LockKey size={28} />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              className="w-full h-14 border-b-2 border-black bg-purple-bytes text-black outline-none placeholder-gray-500 px-4 bg-white bg-opacity-0"
-              required
-            />
-          </div>
+            <div className="flex items-center space-x-2">
+              <LockKey size={24} />
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className="w-full h-12 border-b-2 border-black text-black outline-none placeholder-gray-500 px-3 bg-white"
+                required
+              />
+            </div>
 
-          <div className="p-11">
-            <button
-              type="submit"
-              className="w-full bg-gray-400 text-black border-[2px] border-black rounded-md h-10 font-semibold"
-            >
-              Login
-            </button>
-          </div>
-          <span className="items-center col-span-2 text-black pl-28">
-            Doesn't have an account?{" "}
-            <span className=" items-center text-blue-800">
-              <a href="http://localhost:5173/sign-up">SignUp</a>
-            </span>
-          </span>
-        </form>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                className="w-full bg-gray-400 text-black border-[2px] border-black rounded-md h-10 font-semibold hover:bg-gray-300"
+              >
+                Login
+              </button>
+            </div>
+
+            {submissionMessage && (
+              <div className="text-center text-red-600 mt-4">
+                {submissionMessage}
+              </div>
+            )}
+
+            <div className="text-center text-black mt-4">
+              Doesn't have an account?{" "}
+              <span className="text-blue-800">
+                <a href="/sign-up">SignUp</a>
+              </span>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
