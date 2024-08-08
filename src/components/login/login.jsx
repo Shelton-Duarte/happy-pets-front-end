@@ -35,16 +35,16 @@ export const LoginForm = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmissionMessage.alert(result.message || "Login successful!");
+        setSubmissionMessage(result.message || "Login successful!");
         setFormData({ ...initialFormData });
         setTimeout(() => {
           navigate("/products"); // Redirecionar para a página de produtos após login bem-sucedido
         }, 2000);
       } else {
-        setSubmissionMessage.alert(result.message || "Login failed.");
+        setSubmissionMessage(result.message || "Login failed.");
       }
     } catch (error) {
-      setSubmissionMessage.alert("An error occurred during login.");
+      setSubmissionMessage("An error occurred during login.");
     }
   };
 
