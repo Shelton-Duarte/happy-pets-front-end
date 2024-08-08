@@ -1,14 +1,16 @@
-import { Envelope, LockKey } from "@phosphor-icons/react";
+import { Envelope, LockKey, MapPin, Phone } from "@phosphor-icons/react";
 import React, { useState } from "react";
 
-export const LoginForm = () => {
+export const PaymentForm = () => {
   const initialFormData = {
     email: "",
     password: "",
+    location: "",
+    contact: "",
   };
 
   const [formData, setFormData] = useState({ ...initialFormData });
-  const [submissionMessage, setSubmissionMessage] = useState(""); // Adicionado para mostrar mensagens de envio
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +23,7 @@ export const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Aqui você pode adicionar a lógica de envio do formulário
-    setSubmissionMessage("Login successful!"); // Mensagem de sucesso
+    setSubmissionMessage("Payment successful!"); // Mensagem de sucesso
     setFormData({ ...initialFormData });
   };
 
@@ -29,7 +31,7 @@ export const LoginForm = () => {
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
-        backgroundImage: "url('/login-photo.jpg')",
+        backgroundImage: "url('/login-photo.jpg')", // Altere o caminho conforme necessário
       }}
     >
       <div className="w-full max-w-md p-8 bg-white rounded-3xl shadow-lg">
@@ -39,10 +41,11 @@ export const LoginForm = () => {
           className="w-24 mx-auto mb-6"
         />
         <h2 className="text-2xl font-semibold text-center text-black mb-6">
-          Login
+          Payment
         </h2>
 
         <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
+          {/* Email Field */}
           <div className="flex items-center space-x-3">
             <Envelope size={24} className="text-gray-600" />
             <input
@@ -56,6 +59,7 @@ export const LoginForm = () => {
             />
           </div>
 
+          {/* Password Field */}
           <div className="flex items-center space-x-3">
             <LockKey size={24} className="text-gray-600" />
             <input
@@ -69,11 +73,39 @@ export const LoginForm = () => {
             />
           </div>
 
+          {/* Location Field */}
+          <div className="flex items-center space-x-3">
+            <MapPin size={24} className="text-gray-600" />
+            <input
+              type="text"
+              name="location"
+              placeholder="Location"
+              value={formData.location}
+              onChange={handleChange}
+              className="w-full h-12 border-b-2 border-gray-300 text-black outline-none placeholder-gray-500 px-4"
+              required
+            />
+          </div>
+
+          {/* Contact Field */}
+          <div className="flex items-center space-x-3">
+            <Phone size={24} className="text-gray-600" />
+            <input
+              type="text"
+              name="contact"
+              placeholder="Contact Number"
+              value={formData.contact}
+              onChange={handleChange}
+              className="w-full h-12 border-b-2 border-gray-300 text-black outline-none placeholder-gray-500 px-4"
+              required
+            />
+          </div>
+
           <button
             type="submit"
             className="w-full bg-gray-400 text-black border border-black rounded-md h-12 font-semibold hover:bg-gray-500 transition duration-200"
           >
-            Login
+            Submit
           </button>
 
           {submissionMessage && (
@@ -81,13 +113,6 @@ export const LoginForm = () => {
               {submissionMessage}
             </div>
           )}
-
-          <div className="text-center mt-4">
-            <span className="text-black">Doesn't have an account? </span>
-            <a href="http://localhost:5173/sign-up" className="text-blue-800">
-              Sign Up
-            </a>
-          </div>
         </form>
       </div>
     </div>
