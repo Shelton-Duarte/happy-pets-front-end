@@ -1,5 +1,6 @@
 import { Envelope, LockKey } from "@phosphor-icons/react";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export const LoginForm = () => {
   const initialFormData = {
@@ -9,6 +10,7 @@ export const LoginForm = () => {
 
   const [formData, setFormData] = useState({ ...initialFormData });
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const navigate = useNavigate(); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,11 +20,32 @@ export const LoginForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSubmissionMessage("Login successful!");
-    setFormData({ ...initialFormData });
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setSubmissionMessage.alert(result.message || "Login successful!");
+        setFormData({ ...initialFormData });
+        setTimeout(() => {
+          navigate("/products"); // Redirecionar para a página de produtos após login bem-sucedido
+        }, 2000);
+      } else {
+        setSubmissionMessage.alert(result.message || "Login failed.");
+      }
+    } catch (error) {
+      setSubmissionMessage.alert("An error occurred during login.");
+    }
   };
 
   return (
@@ -79,6 +102,12 @@ export const LoginForm = () => {
                 Login
               </button>
             </div>
+
+            {submissionMessage && (
+              <div className="text-center text-red-600 mt-4">
+                {submissionMessage}
+              </div>
+            )}
 
             <div className="text-center text-black mt-4">
               Doesn't have an account?{" "}
