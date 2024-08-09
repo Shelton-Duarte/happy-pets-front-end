@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ShoppingCart } from "phosphor-react";
 import { useCart } from "../../context/cart-context";
 import Sidebar from "./SideBar"; // Corrigido para Sidebar com maiúscula inicial
+import { NavLink } from "react-router-dom";
 
 export const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,11 +25,6 @@ export const NavBar = () => {
   const handleCheckout = () => {
     clearCart(); // Limpa o carrinho
     setShowModal(true); // Exibe o modal de sucesso
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    setIsCartOpen(false); // Fecha o carrinho ao fechar o modal
   };
 
   return (
@@ -155,34 +151,19 @@ export const NavBar = () => {
             <p>Delivery Fee (10%): ${getDeliveryFee().toFixed(2)}</p>
             <p>Total: ${getTotalWithDelivery().toFixed(2)}</p>
           </div>
-          <button
+          <NavLink
+            to={"/payment"}
             onClick={handleCheckout}
             className="bg-blue-500 text-white px-4 py-2 rounded mt-4"
           >
             Checkout
-          </button>
+          </NavLink>
           <button
             onClick={toggleCart}
-            className="bg-gray-500 text-white px-4 py-2 rounded mt-2"
+            className="bg-gray-500 text-white px-4 py-2 rounded mt-2 ml-3"
           >
             Close
           </button>
-
-          {/* Modal */}
-          {showModal && (
-            <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50">
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h2 className="text-xl font-bold">Checkout Successful</h2>
-                <p className="mt-2">Your order has been placed successfully.</p>
-                <button
-                  onClick={handleCloseModal}
-                  className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
         </div>
       )}
 
