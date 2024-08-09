@@ -11,15 +11,21 @@ const Sidebar = ({ openFaqModal, openAboutModal }) => {
         <nav className="flex flex-col mt-4">
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <House size={32} />
-            <p className="font-semibold">Home</p>
+            <NavLink to={"/"} className="font-semibold">
+              Home
+            </NavLink>
           </div>
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <Dog size={32} />
-            <p className="font-semibold text-blue-700">Products</p>
+            <NavLink to={"/products"} className="font-semibold text-blue-700">
+              Products
+            </NavLink>
           </div>
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <Phone size={32} />
-            <p className="font-semibold">Contact</p>
+            <NavLink to={"/contacts"} className="font-semibold">
+              Contact
+            </NavLink>
           </div>
         </nav>
       </div>
