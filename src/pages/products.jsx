@@ -6,6 +6,7 @@ import Modal from "../components/FAQ/style";
 import { Footer } from "../components/footer/footer";
 import { About } from "../components/about/about";
 import { NavBar } from "../components/header/NavBar";
+import { Slider } from "../components/slides/slides";
 
 export const Products = () => {
   const [isFaqModalOpen, setIsFaqModalOpen] = useState(false);
@@ -24,7 +25,15 @@ export const Products = () => {
         <Sidebar openFaqModal={openFaqModal} openAboutModal={openAboutModal} />
         <div className="flex-auto top-0 right-0 relative">
           <NavBar />
-          <AllProducts />
+          <Slider />
+          <div
+            className="flex items-center justify-center min-h-screen bg-center"
+            style={{
+              backgroundImage: "url('/wallpaper-products-1.avif')",
+            }}
+          >
+            <AllProducts />
+          </div>
           <Footer />
         </div>
       </div>

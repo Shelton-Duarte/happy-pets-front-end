@@ -66,111 +66,191 @@ export const AllProducts = () => {
   return (
     <>
       <div className="pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
-          <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-4">
-            Pets
-          </h1>
-          <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
-            <PetCard
-              src="/Job/Pets/alan-king-.jpg"
-              alt="Alan King"
-              price="99.99"
-            />
-            <PetCard
-              src="/Job/Pets/baptist-standaert-.jpg"
-              alt="Baptist Standaert"
-              price="129.99"
-            />
-            <PetCard
-              src="/Job/Pets/beagle-dog-.jpg"
-              alt="Beagle Dog"
-              price="89.99"
-            />
-            <PetCard
-              src="/Job/Pets/labrador-retriever-portrait.jpg"
-              alt="Labrador Retriever"
-              price="119.99"
-            />
-            <PetCard
-              src="/Job/Pets/Pitbull.jpeg"
-              alt="Pitbull"
-              price="139.99"
-            />
-            <PetCard
-              src="/Job/Pets/oscar-sutton-.jpg"
-              alt="Oscar Sutton"
-              price="109.99"
-            />
+        <div className="mb-12 bg-indigo-100 bg-opacity-95 rounded-3xl p-7">
+          <div className="items-center w-auto">
+            <h1 className="font-black text-5xl sm:text-3xl md:text-4xl mb-4 text-black">
+              Pets
+            </h1>
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
+              <PetCard
+                src="/Job/Pets/alan-king-.jpg"
+                alt="Alan King"
+                price="99.99"
+              />
+              <PetCard
+                src="/Job/Pets/baptist-standaert-.jpg"
+                alt="Baptist Standaert"
+                price="129.99"
+              />
+              <PetCard
+                src="/Job/Pets/beagle-dog-.jpg"
+                alt="Beagle Dog"
+                price="89.99"
+              />
+              <PetCard
+                src="/Job/Pets/labrador-retriever-portrait.jpg"
+                alt="Labrador Retriever"
+                price="119.99"
+              />
+              <PetCard
+                src="/Job/Pets/Pitbull.jpeg"
+                alt="Pitbull"
+                price="139.99"
+              />
+              <PetCard
+                src="/Job/Pets/oscar-sutton-.jpg"
+                alt="Oscar Sutton"
+                price="109.99"
+              />
+              <PetCard
+                src="/Job/Pets/labrador-retriever-portrait.jpg"
+                alt="Labrador Retriever"
+                price="119.99"
+              />
+              <PetCard
+                src="/Job/Pets/Pitbull.jpeg"
+                alt="Pitbull"
+                price="139.99"
+              />
+              <PetCard
+                src="/Job/Pets/oscar-sutton-.jpg"
+                alt="Oscar Sutton"
+                price="109.99"
+              />
+              <PetCard
+                src="/Job/Pets/labrador-retriever-portrait.jpg"
+                alt="Labrador Retriever"
+                price="119.99"
+              />
+            </div>
           </div>
         </div>
-        <div className="mb-12">
-          <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-4">
-            Dog Food
-          </h1>
-          <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
-            <PetCard
-              src="/Job/Racoes/-center-1.avif"
-              alt="-center-1"
-              price="25.99"
-            />
-            <PetCard
-              src="/Job/Racoes/Classic-Puppy-.png"
-              alt="Classic-Puppy-"
-              price="35.99"
-            />
-            <PetCard src="/Job/Racoes/coco-.jpg" alt="coco-" price="28.99" />
-            <PetCard
-              src="/Job/Racoes/Group-shots.png"
-              alt="Group-shots"
-              price="30.99"
-            />
-            <PetCard
-              src="/Job/Racoes/Jock-Grandeur-Large-Breed-Puppy-2kg-.jpg"
-              alt="Jock"
-              price="45.99"
-            />
-            <PetCard
-              src="/Job/Racoes/karoo-main-page-adult-range-dog.webp"
-              alt="karoo"
-              price="40.99"
-            />
+
+        <div className="mb-12 bg-indigo-200 bg-opacity-95 rounded-3xl p-7">
+          <div className="mb-12">
+            <h1 className="font-black text-5xl sm:text-3xl md:text-4xl mb-4 text-black">
+              Dog Food
+            </h1>
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
+              <PetCard
+                src="/Job/Racoes/-center-1.avif"
+                alt="-center-1"
+                price="25.99"
+              />
+              <PetCard
+                src="/Job/Racoes/Classic-Puppy-.png"
+                alt="Classic-Puppy-"
+                price="35.99"
+              />
+              <PetCard src="/Job/Racoes/coco-.jpg" alt="coco-" price="28.99" />
+              <PetCard
+                src="/Job/Racoes/Group-shots.png"
+                alt="Group-shots"
+                price="30.99"
+              />
+              <PetCard
+                src="/Job/Racoes/Jock-Grandeur-Large-Breed-Puppy-2kg-.jpg"
+                alt="Jock"
+                price="45.99"
+              />
+              <PetCard
+                src="/Job/Racoes/karoo-main-page-adult-range-dog.webp"
+                alt="karoo"
+                price="40.99"
+              />
+              <PetCard src="/Job/Racoes/coco-.jpg" alt="coco-" price="28.99" />
+              <PetCard
+                src="/Job/Racoes/Group-shots.png"
+                alt="Group-shots"
+                price="30.99"
+              />
+              <PetCard
+                src="/Job/Racoes/Jock-Grandeur-Large-Breed-Puppy-2kg-.jpg"
+                alt="Jock"
+                price="45.99"
+              />
+              <PetCard
+                src="/Job/Racoes/karoo-main-page-adult-range-dog.webp"
+                alt="karoo"
+                price="40.99"
+              />
+              <PetCard src="/Job/Racoes/coco-.jpg" alt="coco-" price="28.99" />
+              <PetCard
+                src="/Job/Racoes/Group-shots.png"
+                alt="Group-shots"
+                price="30.99"
+              />
+              <PetCard
+                src="/Job/Racoes/Jock-Grandeur-Large-Breed-Puppy-2kg-.jpg"
+                alt="Jock"
+                price="45.99"
+              />
+              <PetCard
+                src="/Job/Racoes/karoo-main-page-adult-range-dog.webp"
+                alt="karoo"
+                price="40.99"
+              />
+            </div>
           </div>
         </div>
-        <div>
-          <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-4">
-            Accessories
-          </h1>
-          <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
-            <PetCard
-              src="/Job/Acessorios/coleira.jfif"
-              alt="coleira"
-              price="15.99"
-            />
-            <PetCard
-              src="/Job/Acessorios/comedor.webp"
-              alt="comedor"
-              price="22.99"
-            />
-            <PetCard
-              src="/Job/Acessorios/comedores.jpg"
-              alt="comedores"
-              price="19.99"
-            />
-            <PetCard
-              src="/Job/Acessorios/Dog_Clothing_1000x1000_1.jpg"
-              alt="Dog_Clothing"
-              price="27.99"
-            />
-            <PetCard
-              src="/Job/Acessorios/Dog_Toys_Sports_Acc_1000x1000_1.jpg"
-              alt="Dog Toys"
-              price="24.99"
-            />
-            <PetCard
-              src="/Job/Acessorios/Dog_Leads_Collars_1000x1000_1.jpg"
-              alt="Dog_Leads_Collars"
-              price="18.99"
-            />
+
+        <div className="mb-12 bg-indigo-300 bg-opacity-95 rounded-3xl p-7">
+          <div>
+            <h1 className="font-black text-5xl sm:text-3xl md:text-4xl mb-4">
+              Accessories
+            </h1>
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
+              <PetCard
+                src="/Job/Acessorios/coleira.jfif"
+                alt="coleira"
+                price="15.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/comedor.webp"
+                alt="comedor"
+                price="22.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/comedores.jpg"
+                alt="comedores"
+                price="19.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Clothing_1000x1000_1.jpg"
+                alt="Dog_Clothing"
+                price="27.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Toys_Sports_Acc_1000x1000_1.jpg"
+                alt="Dog Toys"
+                price="24.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Leads_Collars_1000x1000_1.jpg"
+                alt="Dog_Leads_Collars"
+                price="18.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Toys_Sports_Acc_1000x1000_1.jpg"
+                alt="Dog Toys"
+                price="24.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Leads_Collars_1000x1000_1.jpg"
+                alt="Dog_Leads_Collars"
+                price="18.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Toys_Sports_Acc_1000x1000_1.jpg"
+                alt="Dog Toys"
+                price="24.99"
+              />
+              <PetCard
+                src="/Job/Acessorios/Dog_Leads_Collars_1000x1000_1.jpg"
+                alt="Dog_Leads_Collars"
+                price="18.99"
+              />
+            </div>
           </div>
         </div>
       </div>

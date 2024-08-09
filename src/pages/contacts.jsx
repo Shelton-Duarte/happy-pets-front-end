@@ -1,44 +1,22 @@
-import { Mensagem } from "../components/contact/chatboox/mensege";
-import { Detalhes } from "../components/contact/detalhes/nossos-detlh";
+// import { Mensagem } from "../components/contact/chatboox/mensege";
+// import { Detalhes } from "../components/contact/detalhes/nossos-detlh";
+import { ContactCard } from "../components/contact/social-midea/social-midia";
+import Sidebar from "../components/header/SideBar";
 
 export const Contacts = () => {
   return (
-    <>
-      <main
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "1rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-            maxWidth: "1200px",
-            marginBottom: "1rem",
-          }}
-        >
-          <div
-            style={{
-              flex: 1,
-              marginRight: "1rem",
-            }}
-          >
-            <Detalhes />
-          </div>
-          <div
-            style={{
-              flex: 1,
-              marginLeft: "1rem",
-            }}
-          >
-            <Mensagem />
-          </div>
+    <main
+      className="flex items-center justify-center min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/joe-caione-qO-PIF84Vxg-unsplash.jpg')",
+      }}
+    >
+      <Sidebar />
+      <div className="ml-auto mr-56 flex flex-col items-center p-4">
+        <div className="flex flex-col md:flex-row w-full max-w-6xl mb-4">
+          <ContactCard />
         </div>
-      </main>
-    </>
+      </div>
+    </main>
   );
 };
