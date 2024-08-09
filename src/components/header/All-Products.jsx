@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useCart } from "../../context/cart-context";
 import Cart from "../cart/cart";
+import ProductModal from "../modal-product/modal";
 
 const PetCard = ({ src, alt, price }) => {
   const [quantity, setQuantity] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar a visibilidade do modal
   const { addToCart } = useCart();
 
   const incrementQuantity = () => setQuantity(quantity + 1);
@@ -16,6 +18,9 @@ const PetCard = ({ src, alt, price }) => {
   const handleAddToCart = () => {
     addToCart({ src, alt, price, quantity });
   };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <div className="bg-slate-50 shadow-md p-3 rounded-lg w-full sm:w-[200px] md:w-[250px] lg:w-[300px] flex flex-col items-center">
@@ -44,6 +49,7 @@ const PetCard = ({ src, alt, price }) => {
       </div>
       <div className="mt-2 flex gap-2">
         <button
+          onClick={openModal}
           className="bg-white text-blue-500 border border-blue-500 px-2 py-1 rounded hover:bg-blue-500 hover:text-white transition text-sm"
           aria-label="See product details"
         >
@@ -58,6 +64,11 @@ const PetCard = ({ src, alt, price }) => {
       >
         Add to shopping cart
       </button>
+      <ProductModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        product={{ src, alt, price }} // Passando os detalhes do produto para o modal
+      />
     </div>
   );
 };
