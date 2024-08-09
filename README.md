@@ -1,4 +1,4 @@
-# Projeto de E-commerce
+# Projeto de E-commerce Happy-Pets
 
 ## Requisitos Funcionais
 
