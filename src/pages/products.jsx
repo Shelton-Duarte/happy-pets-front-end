@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import Sidebar from "../components/header/SideBar";
-import AllProducts from "../components/header/All-Products";
+import { AllProducts } from "../components/header/All-Products";
 import FAQ from "../components/FAQ/faq";
 import Modal from "../components/FAQ/style";
 import { Footer } from "../components/footer/footer";
 import { About } from "../components/about/about";
 import { NavBar } from "../components/header/NavBar";
-
 
 export const Products = () => {
   const [isFaqModalOpen, setIsFaqModalOpen] = useState(false);
@@ -20,11 +19,11 @@ export const Products = () => {
 
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <div className="flex">
         <Sidebar openFaqModal={openFaqModal} openAboutModal={openAboutModal} />
         <div className="flex-auto top-0 right-0 relative">
-          <NavBar/>
+          <NavBar />
           <AllProducts />
           <Footer />
         </div>

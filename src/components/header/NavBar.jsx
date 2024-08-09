@@ -53,18 +53,20 @@ export const NavBar = () => {
 
           {/* SignUp and Login Buttons */}
           <div className="hidden md:flex gap-4 items-center">
-            <button
+            <NavLink
+              to={"/sign-up"}
               className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
               onClick={() => console.log("SignUp clicked")}
             >
               SignUp
-            </button>
-            <button
+            </NavLink>
+            <NavLink
+              to={"/login"}
               className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
               onClick={() => console.log("Login clicked")}
             >
               Login
-            </button>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -78,18 +80,20 @@ export const NavBar = () => {
         <button className="text-2xl self-end mb-4" onClick={toggleSidebar}>
           ✕
         </button>
-        <button
+        <NavLink
+          to={"/sign-up"}
           className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl mb-2 cursor-pointer"
           onClick={() => console.log("SignUp clicked")}
         >
           SignUp
-        </button>
-        <button
+        </NavLink>
+        <NavLink
+          to={"/login"}
           className="bg-black text-white text-[15px] px-4 py-1 rounded-2xl cursor-pointer"
           onClick={() => console.log("Login clicked")}
         >
           Login
-        </button>
+        </NavLink>
       </div>
 
       {/* Cart */}
