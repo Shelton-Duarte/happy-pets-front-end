@@ -1,6 +1,6 @@
 import { Envelope, LockKey } from "@phosphor-icons/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
   const initialFormData = {
@@ -9,8 +9,7 @@ export const LoginForm = () => {
   };
 
   const [formData, setFormData] = useState({ ...initialFormData });
-  const [submissionMessage, setSubmissionMessage] = useState("");
-  const navigate = useNavigate(); 
+  const [submissionMessage, setSubmissionMessage] = useState(""); // Adicionado para mostrar mensagens de envio
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,101 +21,75 @@ export const LoginForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const response = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSubmissionMessage(result.message || "Login successful!");
-        setFormData({ ...initialFormData });
-        setTimeout(() => {
-          navigate("/products"); // Redirecionar para a página de produtos após login bem-sucedido
-        }, 2000);
-      } else {
-        setSubmissionMessage(result.message || "Login failed.");
-      }
-    } catch (error) {
-      setSubmissionMessage("An error occurred during login.");
-    }
+    // Aqui você pode adicionar a lógica de envio do formulário
+    setSubmissionMessage("Login successful!"); // Mensagem de sucesso
+    setFormData({ ...initialFormData });
   };
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center sm:[25%]"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center"
       style={{
         backgroundImage: "url('/login-photo.jpg')",
       }}
     >
-      <div className="w-full max-w-md max-w-sm-[50%] p-6 bg-white rounded-3xl shadow-lg ml-[45%]">
-        <div className="flex flex-col items-center">
-          <img
-            src="/happy-pets-logo.png"
-            alt="Happy-Pets-Logo"
-            className="mb-4 w-32 h-auto"
-          />
-          <h2 className="text-2xl font-semibold text-black mb-4">Login</h2>
+      <div className="w-full max-w-md p-8 bg-white rounded-3xl shadow-lg">
+        <img
+          src="/happy-pets-logo.png"
+          alt="Happy Pets Logo"
+          className="w-24 mx-auto mb-6"
+        />
+        <h2 className="text-2xl font-semibold text-center text-black mb-6">
+          Login
+        </h2>
 
-          <form
-            className="flex flex-col space-y-4"
-            onSubmit={handleSubmit}
+        <form className="flex flex-col space-y-6" onSubmit={handleSubmit}>
+          <div className="flex items-center space-x-3">
+            <Envelope size={24} className="text-gray-600" />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full h-12 border-b-2 border-gray-300 text-black outline-none placeholder-gray-500 px-4"
+              required
+            />
+          </div>
+
+          <div className="flex items-center space-x-3">
+            <LockKey size={24} className="text-gray-600" />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full h-12 border-b-2 border-gray-300 text-black outline-none placeholder-gray-500 px-4"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-gray-400 text-black border border-black rounded-md h-12 font-semibold hover:bg-gray-500 transition duration-200"
           >
-            <div className="flex items-center space-x-2">
-              <Envelope size={24} />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full h-12 border-b-2 border-black text-black outline-none placeholder-gray-500 px-3 bg-white"
-                required
-              />
-            </div>
+            Login
+          </button>
 
-            <div className="flex items-center space-x-2">
-              <LockKey size={24} />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full h-12 border-b-2 border-black text-black outline-none placeholder-gray-500 px-3 bg-white"
-                required
-              />
+          {submissionMessage && (
+            <div className="text-green-600 text-center mt-4">
+              {submissionMessage}
             </div>
+          )}
 
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="w-full bg-gray-400 text-black border-[2px] border-black rounded-md h-10 font-semibold hover:bg-gray-300"
-              >
-                Login
-              </button>
-            </div>
-
-            {submissionMessage && (
-              <div className="text-center text-red-600 mt-4">
-                {submissionMessage}
-              </div>
-            )}
-
-            <div className="text-center text-black mt-4">
-              Doesn't have an account?{" "}
-              <span className="text-blue-800">
-                <a href="/sign-up">SignUp</a>
-              </span>
-            </div>
-          </form>
-        </div>
+          <div className="text-center mt-4">
+            <span className="text-black">Doesn't have an account? </span>
+            <a href="http://localhost:5173/sign-up" className="text-blue-800">
+              Sign Up
+            </a>
+          </div>
+        </form>
       </div>
     </div>
   );
