@@ -2,6 +2,7 @@
 // import { Detalhes } from "../components/contact/detalhes/nossos-detlh";
 import { ContactCard } from "../components/contact/social-midea/social-midia";
 import Sidebar from "../components/header/SideBar";
+import { Footer } from "../components/footer/footer";
 
 export const Contacts = () => {
   return (
@@ -16,6 +17,7 @@ export const Contacts = () => {
         <div className="flex flex-col md:flex-row w-full max-w-6xl mb-4">
           <ContactCard />
         </div>
+        <Footer />
       </div>
     </main>
   );

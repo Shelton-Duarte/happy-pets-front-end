@@ -11,19 +11,34 @@ const Sidebar = ({ openFaqModal, openAboutModal }) => {
         <nav className="flex flex-col mt-4">
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <House size={32} />
-            <NavLink to={"/"} className="font-semibold">
+            <NavLink
+              to={"/"}
+              className={({ isActive }) =>
+                `font-semibold ${isActive ? "text-blue-700" : "text-gray-700"}`
+              }
+            >
               Home
             </NavLink>
           </div>
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <Dog size={32} />
-            <NavLink to={"/products"} className="font-semibold text-blue-700">
+            <NavLink
+              to={"/products"}
+              className={({ isActive }) =>
+                `font-semibold ${isActive ? "text-blue-700" : "text-gray-700"}`
+              }
+            >
               Products
             </NavLink>
           </div>
           <div className="flex items-center gap-3 cursor-pointer mt-4 text-lg">
             <Phone size={32} />
-            <NavLink to={"/contacts"} className="font-semibold">
+            <NavLink
+              to={"/contacts"}
+              className={({ isActive }) =>
+                `font-semibold ${isActive ? "text-blue-700" : "text-gray-700"}`
+              }
+            >
               Contact
             </NavLink>
           </div>
